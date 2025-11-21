@@ -1,0 +1,318 @@
+﻿@using InvoiceManagementSystem.Core.Entities
+@model Invoice
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Factura N° @Model.InvoiceID</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+
+        .invoice-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 12px;
+        }
+
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #2c3e50;
+        }
+
+        .company-info h1 {
+            font-size: 48px;
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .company-info p {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .invoice-info {
+            text-align: right;
+        }
+
+        .invoice-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #27ae60;
+            margin-bottom: 5px;
+        }
+
+        .invoice-date {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .client-section {
+            background: #ecf0f1;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+            .client-section h3 {
+                color: #2c3e50;
+                margin-bottom: 15px;
+                font-size: 18px;
+            }
+
+            .client-section p {
+                color: #34495e;
+                line-height: 1.8;
+                font-size: 15px;
+            }
+
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+            .items-table thead {
+                background: #34495e;
+                color: white;
+            }
+
+            .items-table th {
+                padding: 15px;
+                text-align: left;
+                font-weight: 600;
+                font-size: 14px;
+                text-transform: uppercase;
+            }
+
+                .items-table th:last-child,
+                .items-table td:last-child {
+                    text-align: right;
+                }
+
+            .items-table tbody tr {
+                border-bottom: 1px solid #ecf0f1;
+            }
+
+                .items-table tbody tr:hover {
+                    background: #f8f9fa;
+                }
+
+            .items-table td {
+                padding: 15px;
+                color: #2c3e50;
+            }
+
+        .totals-section {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 30px;
+        }
+
+        .totals-box {
+            width: 400px;
+        }
+
+        .totals-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 20px;
+            font-size: 16px;
+        }
+
+            .totals-row.subtotal {
+                background: #ecf0f1;
+            }
+
+            .totals-row.tax {
+                background: #e8f5e9;
+            }
+
+            .totals-row.total {
+                background: #27ae60;
+                color: white;
+                font-size: 24px;
+                font-weight: 700;
+                margin-top: 10px;
+                border-radius: 8px;
+            }
+
+        .totals-label {
+            font-weight: 600;
+        }
+
+        .totals-value {
+            font-weight: 700;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #ecf0f1;
+            text-align: center;
+            color: #95a5a6;
+            font-size: 13px;
+        }
+
+        .actions {
+            margin-top: 40px;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 2px solid #ecf0f1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            margin: 0 10px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .btn-print {
+            background: #3498db;
+            color: white;
+        }
+
+            .btn-print:hover {
+                background: #2980b9;
+                transform: translateY(-2px);
+            }
+
+        .btn-close {
+            background: #95a5a6;
+            color: white;
+        }
+
+            .btn-close:hover {
+                background: #7f8c8d;
+                transform: translateY(-2px);
+            }
+
+        @@media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .invoice-container {
+                box-shadow: none;
+                padding: 20px;
+            }
+
+            .actions {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-container">
+        <!-- Encabezado -->
+        <div class="invoice-header">
+            <div class="company-info">
+                <h1>FACTURA</h1>
+                <p>Sistema de Gestión de Facturas</p>
+            </div>
+            <div class="invoice-info">
+                <div class="invoice-number">N° @Model.InvoiceID.ToString("D6")</div>
+                <div class="invoice-date">@Model.InvoiceDate.ToString("dd 'de' MMMM 'de' yyyy")</div>
+                <div class="invoice-date">@Model.InvoiceDate.ToString("HH:mm")</div>
+            </div>
+        </div>
+
+        <!-- Información del Cliente -->
+        <div class="client-section">
+            <h3>CLIENTE</h3>
+            <p>
+                <strong>@Model.Customer.FirstName @Model.Customer.LastName</strong><br />
+                Email: @Model.Customer.Email<br />
+                ID Cliente: @Model.CustomerID
+            </p>
+        </div>
+
+        <!-- Tabla de Productos -->
+        <table class="items-table">
+            <thead>
+                <tr>
+                    <th>Artículo</th>
+                    <th style="text-align:center;">Cantidad</th>
+                    <th style="text-align:right;">Precio Unitario</th>
+                    <th style="text-align:right;">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var detail in Model.InvoiceDetails)
+                {
+                    <tr>
+                        <td>
+                            <strong>@detail.Product.ProductCode</strong><br />
+                            <span style="color:#7f8c8d; font-size:13px;">@detail.Product.ProductName</span>
+                        </td>
+                        <td style="text-align:center;">@detail.Quantity</td>
+                        <td style="text-align:right;">@detail.UnitPrice.ToString("C")</td>
+                        <td style="text-align:right;"><strong>@detail.TotalPrice.ToString("C")</strong></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- Totales -->
+        <div class="totals-section">
+            <div class="totals-box">
+                <div class="totals-row subtotal">
+                    <span class="totals-label">Subtotal:</span>
+                    <span class="totals-value">@Model.SubTotal.ToString("C")</span>
+                </div>
+                <div class="totals-row tax">
+                    <span class="totals-label">IVA (19%):</span>
+                    <span class="totals-value">@Model.Tax.ToString("C")</span>
+                </div>
+                <div class="totals-row total">
+                    <span class="totals-label">TOTAL:</span>
+                    <span class="totals-value">@Model.Total.ToString("C")</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Gracias por su compra</p>
+            <p>Esta es una factura generada electrónicamente</p>
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="actions">
+            <button onclick="window.print()" class="btn btn-print">
+                🖨️ Imprimir Factura
+            </button>
+            <button onclick="window.close()" class="btn btn-close">
+                ← Cerrar
+            </button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿@using InvoiceManagementSystem.ViewModels
+@model InvoiceViewModel
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="display-4">Sistema de Gestión de Facturas</h1>
+        <p class="lead">Bienvenido al sistema de facturación</p>
+
+        <div class="mt-4">
+            <a asp-controller="Invoices" asp-action="Create" class="btn btn-primary btn-lg">
+                <i class="bi bi-plus-circle"></i> Crear Nueva Factura
+            </a>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="bi bi-file-earmark-text" style="font-size: 3rem;"></i>
+                    <h5 class="card-title mt-3">Facturas</h5>
+                    <p class="card-text">Gestiona todas tus facturas</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="bi bi-people" style="font-size: 3rem;"></i>
+                    <h5 class="card-title mt-3">Clientes</h5>
+                    <p class="card-text">Administra tu base de clientes</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="bi bi-box-seam" style="font-size: 3rem;"></i>
+                    <h5 class="card-title mt-3">Productos</h5>
+                    <p class="card-text">Controla tu inventario</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
