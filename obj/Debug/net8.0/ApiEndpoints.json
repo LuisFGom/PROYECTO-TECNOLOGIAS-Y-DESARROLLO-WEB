@@ -33,6 +33,26 @@
   },
   {
     "ContainingType": "InvoiceManagementSystem.Web.Controllers.Api.LookupController",
+    "Method": "GetAllCustomers",
+    "RelativePath": "api/lookup/all-customers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InvoiceManagementSystem.Web.Controllers.Api.LookupController",
+    "Method": "GetAllProducts",
+    "RelativePath": "api/lookup/all-products",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InvoiceManagementSystem.Web.Controllers.Api.LookupController",
     "Method": "GetCustomer",
     "RelativePath": "api/lookup/customer/{id}",
     "HttpMethod": "GET",
@@ -71,6 +91,16 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InvoiceManagementSystem.Web.Controllers.Api.LookupController",
+    "Method": "GetInvoices",
+    "RelativePath": "api/lookup/invoices",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

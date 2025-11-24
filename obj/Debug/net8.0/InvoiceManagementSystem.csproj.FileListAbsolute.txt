@@ -119,6 +119,7 @@ C:\Users\User\Desktop\QUINTO SEMESTRE\TECNOLOGIAS Y DESARROLLO WEB\PROYECTOS (CO
 C:\Users\User\Desktop\QUINTO SEMESTRE\TECNOLOGIAS Y DESARROLLO WEB\PROYECTOS (CODIGOS)\InvoiceManagementSystem\obj\Debug\net8.0\InvoiceManagementSystem.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\User\Desktop\QUINTO SEMESTRE\TECNOLOGIAS Y DESARROLLO WEB\PROYECTOS (CODIGOS)\InvoiceManagementSystem\obj\Debug\net8.0\InvoiceManagementSystem.RazorAssemblyInfo.cache
 C:\Users\User\Desktop\QUINTO SEMESTRE\TECNOLOGIAS Y DESARROLLO WEB\PROYECTOS (CODIGOS)\InvoiceManagementSystem\obj\Debug\net8.0\InvoiceManagementSystem.RazorAssemblyInfo.cs
+C:\Users\User\Desktop\QUINTO SEMESTRE\TECNOLOGIAS Y DESARROLLO WEB\PROYECTOS (CODIGOS)\InvoiceManagementSystem\obj\Debug\net8.0\InvoiceManagementSystem.sourcelink.json
 C:\Users\User\Desktop\QUINTO SEMESTRE\TECNOLOGIAS Y DESARROLLO WEB\PROYECTOS (CODIGOS)\InvoiceManagementSystem\obj\Debug\net8.0\scopedcss\bundle\InvoiceManagementSystem.styles.css
 C:\Users\User\Desktop\QUINTO SEMESTRE\TECNOLOGIAS Y DESARROLLO WEB\PROYECTOS (CODIGOS)\InvoiceManagementSystem\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\User\Desktop\QUINTO SEMESTRE\TECNOLOGIAS Y DESARROLLO WEB\PROYECTOS (CODIGOS)\InvoiceManagementSystem\obj\Debug\net8.0\staticwebassets.development.json

@@ -1,31 +1,30 @@
-﻿@using InvoiceManagementSystem.Core.Entities
-@model Invoice
+﻿@model InvoiceManagementSystem.Core.Entities.Invoice
+@{
+    ViewData["Title"] = $"Factura {Model.InvoiceID:D6}";
+    Layout = null;
+}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Factura N° @Model.InvoiceID</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura @Model.InvoiceID.ToString("D6")</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
             padding: 20px;
         }
 
         .invoice-container {
+            background: white;
             max-width: 900px;
             margin: 0 auto;
-            background: white;
-            padding: 50px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            border-radius: 12px;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
         .invoice-header {
@@ -33,184 +32,191 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 3px solid #2c3e50;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 20px;
         }
 
         .company-info h1 {
-            font-size: 48px;
-            color: #2c3e50;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .company-info p {
-            color: #7f8c8d;
-            font-size: 14px;
-        }
-
-        .invoice-info {
-            text-align: right;
+            color: #007bff;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 0;
         }
 
         .invoice-number {
-            font-size: 28px;
-            font-weight: 700;
-            color: #27ae60;
-            margin-bottom: 5px;
+            text-align: right;
         }
 
-        .invoice-date {
-            color: #7f8c8d;
-            font-size: 14px;
-        }
+            .invoice-number h2 {
+                color: #007bff;
+                font-size: 24px;
+                margin: 0;
+            }
 
-        .client-section {
-            background: #ecf0f1;
-            padding: 25px;
-            border-radius: 8px;
+            .invoice-number p {
+                color: #666;
+                margin: 5px 0;
+            }
+
+        .invoice-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
             margin-bottom: 40px;
         }
 
-            .client-section h3 {
-                color: #2c3e50;
-                margin-bottom: 15px;
-                font-size: 18px;
+        .section-title {
+            font-weight: bold;
+            color: #007bff;
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .detail-item {
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 14px;
+        }
+
+            .detail-item strong {
+                color: #000;
             }
 
-            .client-section p {
-                color: #34495e;
-                line-height: 1.8;
-                font-size: 15px;
-            }
-
-        .items-table {
+        table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 30px;
         }
 
-            .items-table thead {
-                background: #34495e;
-                color: white;
-            }
+        thead {
+            background: #007bff;
+            color: white;
+        }
 
-            .items-table th {
-                padding: 15px;
-                text-align: left;
-                font-weight: 600;
-                font-size: 14px;
-                text-transform: uppercase;
-            }
+        th {
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #ddd;
+        }
 
-                .items-table th:last-child,
-                .items-table td:last-child {
-                    text-align: right;
-                }
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
 
-            .items-table tbody tr {
-                border-bottom: 1px solid #ecf0f1;
-            }
+        tbody tr:nth-child(even) {
+            background: #f8f9fa;
+        }
 
-                .items-table tbody tr:hover {
-                    background: #f8f9fa;
-                }
+        tbody tr:hover {
+            background: #e7f3ff;
+        }
 
-            .items-table td {
-                padding: 15px;
-                color: #2c3e50;
-            }
+        .text-right {
+            text-align: right;
+        }
 
         .totals-section {
-            display: flex;
-            justify-content: flex-end;
-            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
-        .totals-box {
-            width: 400px;
+        .totals-table {
+            text-align: right;
         }
 
-        .totals-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 20px;
-            font-size: 16px;
-        }
-
-            .totals-row.subtotal {
-                background: #ecf0f1;
+            .totals-table table {
+                margin: 0;
             }
 
-            .totals-row.tax {
-                background: #e8f5e9;
+            .totals-table th,
+            .totals-table td {
+                padding: 10px;
             }
 
-            .totals-row.total {
-                background: #27ae60;
-                color: white;
-                font-size: 24px;
-                font-weight: 700;
-                margin-top: 10px;
-                border-radius: 8px;
+        .total-row {
+            background: #007bff;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+            .total-row td {
+                padding: 15px;
+                border: none;
             }
-
-        .totals-label {
-            font-weight: 600;
-        }
-
-        .totals-value {
-            font-weight: 700;
-        }
-
-        .footer {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 2px solid #ecf0f1;
-            text-align: center;
-            color: #95a5a6;
-            font-size: 13px;
-        }
 
         .actions {
-            margin-top: 40px;
-            text-align: center;
-            padding-top: 30px;
-            border-top: 2px solid #ecf0f1;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
         }
 
         .btn {
-            display: inline-block;
-            padding: 15px 40px;
-            margin: 0 10px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
+            padding: 10px 20px;
             border: none;
-            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
             transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn-print {
-            background: #3498db;
+            background: #007bff;
             color: white;
         }
 
             .btn-print:hover {
-                background: #2980b9;
-                transform: translateY(-2px);
+                background: #0056b3;
             }
 
-        .btn-close {
-            background: #95a5a6;
+        .btn-save {
+            background: #28a745;
             color: white;
         }
 
-            .btn-close:hover {
-                background: #7f8c8d;
-                transform: translateY(-2px);
+            .btn-save:hover {
+                background: #1e7e34;
             }
+
+        .btn-cancel {
+            background: #ffc107;
+            color: #333;
+        }
+
+            .btn-cancel:hover {
+                background: #e0a800;
+            }
+
+        /* ESTILO ROJO SUAVE PARA EL BOTÓN CERRAR - CORREGIDO */
+        .btn-close-invoice {
+            background: #f8d7da; /* Fondo rojo suave */
+            color: #721c24; /* Texto oscuro para contraste */
+            border: 1px solid #f5c6cb;
+        }
+
+            .btn-close-invoice:hover {
+                background: #f5c6cb; /* Un poco más oscuro al pasar el ratón */
+            }
+
+        .btn i {
+            font-size: 16px;
+        }
+
+        .btn span {
+            font-size: 14px;
+        }
 
         @@media print {
             body {
@@ -218,101 +224,149 @@
                 padding: 0;
             }
 
-            .invoice-container {
-                box-shadow: none;
-                padding: 20px;
-            }
-
             .actions {
                 display: none;
             }
+
+            .invoice-container {
+                box-shadow: none;
+                padding: 0;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="invoice-container">
-        <!-- Encabezado -->
         <div class="invoice-header">
             <div class="company-info">
-                <h1>FACTURA</h1>
-                <p>Sistema de Gestión de Facturas</p>
+                <h1>📋 FACTURA</h1>
             </div>
-            <div class="invoice-info">
-                <div class="invoice-number">N° @Model.InvoiceID.ToString("D6")</div>
-                <div class="invoice-date">@Model.InvoiceDate.ToString("dd 'de' MMMM 'de' yyyy")</div>
-                <div class="invoice-date">@Model.InvoiceDate.ToString("HH:mm")</div>
+            <div class="invoice-number">
+                <h2>Nº @Model.InvoiceID.ToString("D6")</h2>
+                <p><strong>Fecha:</strong> @Model.InvoiceDate.ToString("dd/MM/yyyy HH:mm")</p>
             </div>
         </div>
 
-        <!-- Información del Cliente -->
-        <div class="client-section">
-            <h3>CLIENTE</h3>
-            <p>
-                <strong>@Model.Customer.FirstName @Model.Customer.LastName</strong><br />
-                Email: @Model.Customer.Email<br />
-                ID Cliente: @Model.CustomerID
-            </p>
+        <div class="invoice-details">
+            <div>
+                <div class="section-title">Facturado a:</div>
+                <div class="detail-item"><strong>Nombre:</strong> @Model.Customer.FirstName @Model.Customer.LastName</div>
+                <div class="detail-item"><strong>Email:</strong> @Model.Customer.Email</div>
+                <div class="detail-item"><strong>ID Cliente:</strong> @Model.Customer.CustomerID</div>
+            </div>
+            <div>
+                <div class="section-title">Información de la Factura:</div>
+                <div class="detail-item"><strong>Nº Factura:</strong> @Model.InvoiceID.ToString("D6")</div>
+                <div class="detail-item"><strong>Fecha:</strong> @Model.InvoiceDate.ToString("dd/MM/yyyy HH:mm")</div>
+            </div>
         </div>
 
-        <!-- Tabla de Productos -->
-        <table class="items-table">
+        <table>
             <thead>
                 <tr>
-                    <th>Artículo</th>
-                    <th style="text-align:center;">Cantidad</th>
-                    <th style="text-align:right;">Precio Unitario</th>
-                    <th style="text-align:right;">Total</th>
+                    <th>Código</th>
+                    <th>Producto</th>
+                    <th style="text-align: center;">Cantidad</th>
+                    <th style="text-align: right;">Precio Unit.</th>
+                    <th style="text-align: right;">Total</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var detail in Model.InvoiceDetails)
                 {
                     <tr>
-                        <td>
-                            <strong>@detail.Product.ProductCode</strong><br />
-                            <span style="color:#7f8c8d; font-size:13px;">@detail.Product.ProductName</span>
-                        </td>
-                        <td style="text-align:center;">@detail.Quantity</td>
-                        <td style="text-align:right;">@detail.UnitPrice.ToString("C")</td>
-                        <td style="text-align:right;"><strong>@detail.TotalPrice.ToString("C")</strong></td>
+                        <td><strong>@detail.Product.ProductCode</strong></td>
+                        <td>@detail.Product.ProductName</td>
+                        <td style="text-align: center;">@detail.Quantity</td>
+                        <td style="text-align: right;">$@detail.UnitPrice.ToString("N2")</td>
+                        <td style="text-align: right;"><strong>$@((detail.Quantity * detail.UnitPrice).ToString("N2"))</strong></td>
                     </tr>
                 }
             </tbody>
         </table>
 
-        <!-- Totales -->
         <div class="totals-section">
-            <div class="totals-box">
-                <div class="totals-row subtotal">
-                    <span class="totals-label">Subtotal:</span>
-                    <span class="totals-value">@Model.SubTotal.ToString("C")</span>
-                </div>
-                <div class="totals-row tax">
-                    <span class="totals-label">IVA (19%):</span>
-                    <span class="totals-value">@Model.Tax.ToString("C")</span>
-                </div>
-                <div class="totals-row total">
-                    <span class="totals-label">TOTAL:</span>
-                    <span class="totals-value">@Model.Total.ToString("C")</span>
-                </div>
+            <div></div>
+            <div class="totals-table">
+                <table>
+                    <tr>
+                        <td><strong>Subtotal:</strong></td>
+                        <td style="text-align: right;">$@Model.SubTotal.ToString("N2")</td>
+                    </tr>
+                    <tr>
+                        <td><strong>IVA (19%):</strong></td>
+                        <td style="text-align: right;">$@Model.Tax.ToString("N2")</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>TOTAL:</td>
+                        <td style="text-align: right;">$@Model.Total.ToString("N2")</td>
+                    </tr>
+                </table>
             </div>
         </div>
 
-        <!-- Footer -->
-        <div class="footer">
-            <p>Gracias por su compra</p>
-            <p>Esta es una factura generada electrónicamente</p>
+        <div class="actions">
+            <button type="button" class="btn btn-print" onclick="window.print()">
+                <i class="bi bi-printer-fill"></i>
+                <span>🖨️ Imprimir</span>
+            </button>
+            <button type="button" class="btn btn-save" onclick="savePDF()">
+                <i class="bi bi-file-earmark-pdf"></i>
+                <span>💾 Descargar PDF</span>
+            </button>
+            <button type="button" class="btn btn-cancel" onclick="goBack()">
+                <i class="bi bi-arrow-left"></i>
+                <span>⬅️ Volver</span>
+            </button>
+            <button type="button" class="btn btn-close-invoice" onclick="closeWindow()">
+                <i class="bi bi-x-circle"></i>
+                <span>❌ Cerrar</span>
+            </button>
         </div>
 
-        <!-- Botones de Acción -->
-        <div class="actions">
-            <button onclick="window.print()" class="btn btn-print">
-                🖨️ Imprimir Factura
-            </button>
-            <button onclick="window.close()" class="btn btn-close">
-                ← Cerrar
-            </button>
+        <div class="footer">
+            <p>© 2025 - Sistema de Gestión de Facturas | Factura Nº @Model.InvoiceID.ToString("D6")</p>
+            <p>Esta factura fue generada automáticamente por el sistema.</p>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script>
+        function savePDF() {
+            const element = document.querySelector('.invoice-container');
+            const invoiceId = '@Model.InvoiceID.ToString("D6")';
+            const opt = {
+                margin: 10,
+                filename: 'Factura-' + invoiceId + '.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
+            };
+            html2pdf().set(opt).from(element).save();
+        }
+
+        function goBack() {
+            window.location.href = '/Invoices/Create';
+        }
+
+        function closeWindow() {
+            if (window.opener) {
+                window.close();
+            } else {
+                window.location.href = '/';
+            }
+        }
+    </script>
 </body>
 </html>

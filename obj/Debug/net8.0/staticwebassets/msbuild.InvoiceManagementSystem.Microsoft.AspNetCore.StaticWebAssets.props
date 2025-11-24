@@ -84,8 +84,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>j6m3b0t0np</Fingerprint>
-      <Integrity>C06Mx9ZFDDsXgd6KVquYgrWDf0F6UahXB3C0zdQJg7A=</Integrity>
+      <Fingerprint>q2hy2g1dkd</Fingerprint>
+      <Integrity>DqNJJIf6uqeCYhtI+seagYI30EfeKYSxqRFILx9Z2Yg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\invoice-advanced.js'))</OriginalItemSpec>

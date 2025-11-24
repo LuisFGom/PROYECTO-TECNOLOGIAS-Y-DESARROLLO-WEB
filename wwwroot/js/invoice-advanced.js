@@ -1,10 +1,9 @@
 ﻿// ================================================================
-// SISTEMA DE FACTURACIÓN AVANZADO - VERSIÓN FINAL
+// SISTEMA DE FACTURACIÓN AVANZADO - VERSIÓN FINAL MEJORADA (CORREGIDA)
 // ================================================================
 
 console.log('🚀 Iniciando sistema de facturación...');
 
-// ==================== ESPERAR A QUE EL DOM ESTÉ LISTO ====================
 document.addEventListener('DOMContentLoaded', function () {
     console.log('✅ DOM cargado, iniciando sistema...');
 
@@ -28,6 +27,10 @@ document.addEventListener('DOMContentLoaded', function () {
         searchCustomerEmail: document.getElementById('searchCustomerEmail'),
 
         customerIdResults: document.getElementById('customerIdResults'),
+        customerNameResults: document.getElementById('customerNameResults'),
+        customerLastNameResults: document.getElementById('customerLastNameResults'),
+        customerEmailResults: document.getElementById('customerEmailResults'),
+
         selectedCustomerCard: document.getElementById('selectedCustomerCard'),
 
         displayCustomerId: document.getElementById('displayCustomerId'),
@@ -47,6 +50,8 @@ document.addEventListener('DOMContentLoaded', function () {
         searchProductCode: document.getElementById('searchProductCode'),
         searchProductName: document.getElementById('searchProductName'),
         productCodeResults: document.getElementById('productCodeResults'),
+        // 🛠️ CORRECCIÓN: Agregar el contenedor de resultados para la búsqueda por Nombre del Producto
+        productNameResults: document.getElementById('productNameResults'), // Asegúrate de que este ID exista en tu CSHTML
 
         ProductPrice: document.getElementById('ProductPrice'),
         ProductStock: document.getElementById('ProductStock'),
@@ -71,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ==================== BÚSQUEDA DE CLIENTES ====================
 
+    // Se mantiene la lógica de botones de clientes...
     elements.btnSearchById?.addEventListener('click', () => {
         console.log('🔍 Buscar por ID activado');
         disableAllCustomerInputs();
@@ -114,7 +120,11 @@ document.addEventListener('DOMContentLoaded', function () {
         elements.searchCustomerLastName.value = '';
         elements.searchCustomerEmail.value = '';
 
+        // 🛠️ CORRECCIÓN: Ocultar explícitamente todos los dropdowns al deshabilitar
         elements.customerIdResults.style.display = 'none';
+        elements.customerNameResults.style.display = 'none';
+        elements.customerLastNameResults.style.display = 'none';
+        elements.customerEmailResults.style.display = 'none';
     }
 
     function highlightActiveButton(activeBtn, type) {
@@ -125,43 +135,69 @@ document.addEventListener('DOMContentLoaded', function () {
         const colorClass = type === 'customer' ? 'primary' : 'success';
 
         buttons.forEach(btn => {
-            btn.classList.remove('active', `btn-${colorClass}`);
-            btn.classList.add(`btn-outline-${colorClass}`);
+            if (btn) {
+                btn.classList.remove('active', `btn-${colorClass}`);
+                btn.classList.add(`btn-outline-${colorClass}`);
+            }
         });
 
-        activeBtn.classList.add('active', `btn-${colorClass}`);
-        activeBtn.classList.remove(`btn-outline-${colorClass}`);
+        if (activeBtn) {
+            activeBtn.classList.add('active', `btn-${colorClass}`);
+            activeBtn.classList.remove(`btn-outline-${colorClass}`);
+        }
     }
 
-    // Búsqueda en tiempo real de clientes
-    [elements.searchCustomerId, elements.searchCustomerName,
-    elements.searchCustomerLastName, elements.searchCustomerEmail].forEach(input => {
-        input?.addEventListener('input', (e) => {
-            clearTimeout(searchTimer);
-            const query = e.target.value.trim();
+    // Búsqueda en tiempo real de clientes - 🔥 CORREGIDA: Lógica para pasar el tipo de búsqueda
+    const customerSearchConfig = [
+        { input: elements.searchCustomerId, results: elements.customerIdResults, type: 'id' },
+        { input: elements.searchCustomerName, results: elements.customerNameResults, type: 'name' },
+        { input: elements.searchCustomerLastName, results: elements.customerLastNameResults, type: 'lastname' },
+        { input: elements.searchCustomerEmail, results: elements.customerEmailResults, type: 'email' }
+    ];
 
-            if (query.length < 1) {
-                elements.customerIdResults.style.display = 'none';
-                return;
-            }
+    customerSearchConfig.forEach(({ input, results, type }) => {
+        if (input && results) {
+            input.addEventListener('input', (e) => {
+                clearTimeout(searchTimer);
+                const query = e.target.value.trim();
 
-            searchTimer = setTimeout(() => searchCustomers(query), 300);
-        });
+                // 🛠️ CORRECCIÓN: Asegurar que solo el dropdown activo se muestre y los demás se oculten
+                hideAllCustomerDropdowns(results); // Oculta todos excepto el que se usará
+
+                if (query.length < 1) {
+                    results.style.display = 'none';
+                    return;
+                }
+
+                searchTimer = setTimeout(() => searchCustomers(query, results, type), 300);
+            });
+        }
     });
 
-    async function searchCustomers(query) {
+    // Nueva función para ocultar todos los dropdowns de clientes (excepto el activo opcionalmente)
+    function hideAllCustomerDropdowns(excludeContainer = null) {
+        [elements.customerIdResults, elements.customerNameResults, elements.customerLastNameResults, elements.customerEmailResults].forEach(container => {
+            if (container && container !== excludeContainer) {
+                container.style.display = 'none';
+            }
+        });
+    }
+
+    async function searchCustomers(query, resultsContainer, searchType) {
         try {
-            console.log('🌐 Buscando clientes:', query);
+            console.log(`🌐 Buscando clientes por ${searchType}: ${query}`);
+            // NOTA: Para una API real, deberías enviar el 'searchType' (e.g., /customers?type=name&q=query)
+            // Aquí, tu API solo usa 'q', lo cual no diferencia, pero la clave es el 'resultsContainer'
             const response = await fetch(`${API_BASE}/customers?q=${encodeURIComponent(query)}&pageSize=10`);
             const data = await response.json();
 
             console.log('📦 Clientes encontrados:', data);
 
             if (data.items && data.items.length > 0) {
-                showCustomerResults(data.items);
+                showCustomerResults(data.items, resultsContainer);
             } else {
-                elements.customerIdResults.innerHTML = '<div class="search-result-item text-muted">No se encontraron clientes</div>';
-                elements.customerIdResults.style.display = 'block';
+                resultsContainer.innerHTML = '<div class="search-result-item text-muted">No se encontraron clientes</div>';
+                resultsContainer.style.display = 'block';
             }
         } catch (error) {
             console.error('❌ Error buscando clientes:', error);
@@ -169,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function showCustomerResults(customers) {
+    function showCustomerResults(customers, resultsContainer) {
         let html = '';
         customers.forEach(c => {
             const customerId = c.CustomerID || c.customerID;
@@ -177,9 +213,10 @@ document.addEventListener('DOMContentLoaded', function () {
             const lastName = c.LastName || c.lastName || '';
             const email = c.Email || c.email || '';
 
-            const safeFirstName = firstName.replace(/'/g, "\\'");
-            const safeLastName = lastName.replace(/'/g, "\\'");
-            const safeEmail = email.replace(/'/g, "\\'");
+            // Escapando comillas simples para la función onclick
+            const safeFirstName = String(firstName).replace(/'/g, "\\'");
+            const safeLastName = String(lastName).replace(/'/g, "\\'");
+            const safeEmail = String(email).replace(/'/g, "\\'");
 
             html += `
                 <div class="search-result-item" onclick="selectCustomer(${customerId}, '${safeFirstName}', '${safeLastName}', '${safeEmail}')">
@@ -188,8 +225,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
             `;
         });
-        elements.customerIdResults.innerHTML = html;
-        elements.customerIdResults.style.display = 'block';
+        resultsContainer.innerHTML = html;
+        resultsContainer.style.display = 'block';
     }
 
     window.selectCustomer = function (id, firstName, lastName, email) {
@@ -197,18 +234,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
         selectedCustomer = { id, firstName, lastName, email };
 
-        elements.CustomerID.value = id;
-        elements.FirstName.value = firstName;
-        elements.LastName.value = lastName;
-        elements.Email.value = email;
+        if (elements.CustomerID) elements.CustomerID.value = id;
+        if (elements.FirstName) elements.FirstName.value = firstName;
+        if (elements.LastName) elements.LastName.value = lastName;
+        if (elements.Email) elements.Email.value = email;
 
-        elements.displayCustomerId.textContent = id;
-        elements.displayFirstName.textContent = firstName;
-        elements.displayLastName.textContent = lastName;
-        elements.displayEmail.textContent = email;
+        if (elements.displayCustomerId) elements.displayCustomerId.textContent = id;
+        if (elements.displayFirstName) elements.displayFirstName.textContent = firstName;
+        if (elements.displayLastName) elements.displayLastName.textContent = lastName;
+        if (elements.displayEmail) elements.displayEmail.textContent = email;
 
-        elements.selectedCustomerCard.style.display = 'block';
-        elements.customerIdResults.style.display = 'none';
+        if (elements.selectedCustomerCard) elements.selectedCustomerCard.style.display = 'block';
+
+        // 🛠️ CORRECCIÓN: Usar la función centralizada para cerrar todos los dropdowns
+        hideAllCustomerDropdowns();
 
         disableAllCustomerInputs();
         checkFormCompletion();
@@ -217,68 +256,94 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ==================== BÚSQUEDA DE PRODUCTOS ====================
 
+    // Se mantiene la lógica de botones de productos...
     elements.btnSearchByCode?.addEventListener('click', () => {
         console.log('🔍 Buscar producto por código');
         disableAllProductInputs();
-        elements.searchProductCode.disabled = false;
-        elements.searchProductCode.focus();
+        if (elements.searchProductCode) elements.searchProductCode.disabled = false;
+        if (elements.searchProductCode) elements.searchProductCode.focus();
         highlightActiveButton(elements.btnSearchByCode, 'product');
     });
 
     elements.btnSearchByProductName?.addEventListener('click', () => {
         console.log('🔍 Buscar producto por nombre');
         disableAllProductInputs();
-        elements.searchProductName.disabled = false;
-        elements.searchProductName.focus();
+        if (elements.searchProductName) elements.searchProductName.disabled = false;
+        if (elements.searchProductName) elements.searchProductName.focus();
         highlightActiveButton(elements.btnSearchByProductName, 'product');
     });
 
     function disableAllProductInputs() {
-        elements.searchProductCode.disabled = true;
-        elements.searchProductName.disabled = true;
-        elements.searchProductCode.value = '';
-        elements.searchProductName.value = '';
-        elements.productCodeResults.style.display = 'none';
+        if (elements.searchProductCode) elements.searchProductCode.disabled = true;
+        if (elements.searchProductName) elements.searchProductName.disabled = true;
+        if (elements.searchProductCode) elements.searchProductCode.value = '';
+        if (elements.searchProductName) elements.searchProductName.value = '';
+
+        // 🛠️ CORRECCIÓN: Ocultar ambos dropdowns de producto
+        if (elements.productCodeResults) elements.productCodeResults.style.display = 'none';
+        if (elements.productNameResults) elements.productNameResults.style.display = 'none';
+
         clearProductFields();
     }
 
     function clearProductFields() {
         selectedProduct = null;
-        elements.ProductPrice.value = '';
-        elements.ProductStock.value = '';
-        elements.ProductQuantity.value = 1;
-        elements.ProductQuantity.disabled = true;
-        elements.btnAddProduct.disabled = true;
+        if (elements.ProductPrice) elements.ProductPrice.value = '';
+        if (elements.ProductStock) elements.ProductStock.value = '';
+        if (elements.ProductQuantity) elements.ProductQuantity.value = 1;
+        if (elements.ProductQuantity) elements.ProductQuantity.disabled = true;
+        if (elements.btnAddProduct) elements.btnAddProduct.disabled = true;
     }
 
-    [elements.searchProductCode, elements.searchProductName].forEach(input => {
+    // 🛠️ CORRECCIÓN: Adaptar la lógica de búsqueda para manejar los dos inputs de producto
+    const productSearchConfig = [
+        { input: elements.searchProductCode, results: elements.productCodeResults, type: 'code' },
+        { input: elements.searchProductName, results: elements.productNameResults, type: 'name' }
+    ];
+
+    productSearchConfig.forEach(({ input, results, type }) => {
         input?.addEventListener('input', (e) => {
             clearTimeout(searchTimer);
             const query = e.target.value.trim();
 
+            // 🛠️ CORRECCIÓN: Asegurar que solo el dropdown activo se muestre
+            hideAllProductDropdowns(results);
+
             if (query.length < 1) {
-                elements.productCodeResults.style.display = 'none';
+                results.style.display = 'none';
                 clearProductFields();
                 return;
             }
 
-            searchTimer = setTimeout(() => searchProducts(query), 300);
+            // Pasamos el contenedor de resultados específico
+            searchTimer = setTimeout(() => searchProducts(query, results, type), 300);
         });
     });
 
-    async function searchProducts(query) {
+    // Nueva función para ocultar todos los dropdowns de productos
+    function hideAllProductDropdowns(excludeContainer = null) {
+        [elements.productCodeResults, elements.productNameResults].forEach(container => {
+            if (container && container !== excludeContainer) {
+                container.style.display = 'none';
+            }
+        });
+    }
+
+    // 🛠️ CORRECCIÓN: La función ahora recibe el contenedor de resultados
+    async function searchProducts(query, resultsContainer, searchType) {
         try {
-            console.log('🌐 Buscando productos:', query);
+            console.log(`🌐 Buscando productos por ${searchType}: ${query}`);
             const response = await fetch(`${API_BASE}/products?q=${encodeURIComponent(query)}&pageSize=10`);
             const data = await response.json();
 
             console.log('📦 Productos encontrados:', data);
 
             if (data.items && data.items.length > 0) {
-                showProductResults(data.items);
+                // Pasamos el contenedor correcto a la función de renderizado
+                showProductResults(data.items, resultsContainer);
             } else {
-                elements.productCodeResults.innerHTML = '<div class="search-result-item text-muted">No se encontraron productos</div>';
-                elements.productCodeResults.style.display = 'block';
+                resultsContainer.innerHTML = '<div class="search-result-item text-muted">No se encontraron productos</div>';
+                resultsContainer.style.display = 'block';
             }
         } catch (error) {
             console.error('❌ Error buscando productos:', error);
@@ -286,17 +351,19 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function showProductResults(productList) {
+    // 🛠️ CORRECCIÓN: La función ahora recibe el contenedor de resultados
+    function showProductResults(productList, resultsContainer) {
         let html = '';
         productList.forEach(p => {
             const productId = p.ProductID || p.productID;
             const productCode = p.ProductCode || p.productCode || '';
             const productName = p.ProductName || p.productName || '';
-            const price = p.Price || p.price || 0;
-            const stock = p.Stock || p.stock || 0;
+            const price = parseFloat(p.Price || p.price || 0);
+            const stock = parseInt(p.Stock || p.stock || 0);
 
-            const safeCode = productCode.replace(/'/g, "\\'");
-            const safeName = productName.replace(/'/g, "\\'");
+            // Escapando comillas simples para la función onclick
+            const safeCode = String(productCode).replace(/'/g, "\\'");
+            const safeName = String(productName).replace(/'/g, "\\'");
 
             html += `
                 <div class="search-result-item" onclick="selectProduct(${productId}, '${safeCode}', '${safeName}', ${price}, ${stock})">
@@ -305,8 +372,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
             `;
         });
-        elements.productCodeResults.innerHTML = html;
-        elements.productCodeResults.style.display = 'block';
+
+        // 🛠️ CORRECCIÓN: Usar el contenedor que se pasó por parámetro
+        resultsContainer.innerHTML = html;
+        resultsContainer.style.display = 'block';
     }
 
     window.selectProduct = function (id, code, name, price, stock) {
@@ -320,13 +389,17 @@ document.addEventListener('DOMContentLoaded', function () {
             Stock: parseInt(stock)
         };
 
-        elements.searchProductCode.value = code;
-        elements.searchProductName.value = name;
-        elements.ProductPrice.value = `$${parseFloat(price).toFixed(2)}`;
-        elements.ProductStock.value = stock;
-        elements.ProductQuantity.disabled = false;
-        elements.ProductQuantity.focus();
-        elements.productCodeResults.style.display = 'none';
+        if (elements.searchProductCode) elements.searchProductCode.value = code;
+        if (elements.searchProductName) elements.searchProductName.value = name;
+        if (elements.ProductPrice) elements.ProductPrice.value = `$${parseFloat(price).toFixed(2)}`;
+        if (elements.ProductStock) elements.ProductStock.value = stock;
+        if (elements.ProductQuantity) {
+            elements.ProductQuantity.disabled = false;
+            elements.ProductQuantity.focus();
+        }
+
+        // 🛠️ CORRECCIÓN: Ocultar ambos dropdowns al seleccionar el producto
+        hideAllProductDropdowns();
 
         checkAddButtonState();
         showNotification('Producto seleccionado', 'success');
@@ -335,14 +408,16 @@ document.addEventListener('DOMContentLoaded', function () {
     elements.ProductQuantity?.addEventListener('input', checkAddButtonState);
 
     function checkAddButtonState() {
-        const qty = parseInt(elements.ProductQuantity.value) || 0;
-        elements.btnAddProduct.disabled = !selectedProduct || qty < 1;
+        const qty = parseInt(elements.ProductQuantity?.value) || 0;
+        if (elements.btnAddProduct) {
+            elements.btnAddProduct.disabled = !selectedProduct || qty < 1;
+        }
     }
 
-    // ==================== AGREGAR PRODUCTO ====================
+    // ==================== AGREGAR PRODUCTO (Resto del código se mantiene) ====================
 
     elements.btnAddProduct?.addEventListener('click', () => {
-        const qty = parseInt(elements.ProductQuantity.value) || 0;
+        const qty = parseInt(elements.ProductQuantity?.value) || 0;
 
         if (!selectedProduct) {
             showNotification('Selecciona un producto primero', 'warning');
@@ -374,7 +449,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 ProductName: selectedProduct.ProductName,
                 Quantity: qty,
                 UnitPrice: selectedProduct.Price,
-                Stock: selectedProduct.Stock
+                Stock: selectedProduct.Stock // Se mantiene el stock para referencias futuras/validación
             });
         }
 
@@ -385,8 +460,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function renderProductsTable() {
+        if (!elements.productsTableBody || !elements.emptyRow) return;
+
         if (products.length === 0) {
             elements.emptyRow.style.display = 'table-row';
+            elements.productsTableBody.innerHTML = ''; // Limpiar el cuerpo de la tabla si está vacía
+            updateTotals(); // Actualizar totales a cero
+            checkFormCompletion();
             return;
         }
 
@@ -423,25 +503,28 @@ document.addEventListener('DOMContentLoaded', function () {
         showNotification('Producto eliminado', 'info');
     };
 
-    // ==================== TOTALES ====================
+    // ==================== TOTALES (Resto del código se mantiene) ====================
 
     function updateTotals() {
         const subtotal = products.reduce((sum, p) => sum + (p.Quantity * p.UnitPrice), 0);
-        const tax = subtotal * 0.19;
+        const taxRate = 0.19; // 19% de impuesto
+        const tax = subtotal * taxRate;
         const total = subtotal + tax;
 
-        elements.subtotalAmount.textContent = `$${subtotal.toFixed(2)}`;
-        elements.taxAmount.textContent = `$${tax.toFixed(2)}`;
-        elements.totalAmount.textContent = `$${total.toFixed(2)}`;
+        if (elements.subtotalAmount) elements.subtotalAmount.textContent = `$${subtotal.toFixed(2)}`;
+        if (elements.taxAmount) elements.taxAmount.textContent = `$${tax.toFixed(2)}`;
+        if (elements.totalAmount) elements.totalAmount.textContent = `$${total.toFixed(2)}`;
 
         console.log('💰 Totales actualizados:', { subtotal, tax, total });
     }
 
-    // ==================== GENERAR FACTURA ====================
+    // ==================== GENERAR FACTURA (Corregido el envío) ====================
 
     function checkFormCompletion() {
         const canGenerate = selectedCustomer && products.length > 0;
-        elements.btnGenerateInvoice.disabled = !canGenerate;
+        if (elements.btnGenerateInvoice) {
+            elements.btnGenerateInvoice.disabled = !canGenerate;
+        }
     }
 
     elements.btnGenerateInvoice?.addEventListener('click', () => {
@@ -457,8 +540,10 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        elements.invoicePreview.style.display = 'block';
-        elements.invoicePreview.scrollIntoView({ behavior: 'smooth' });
+        if (elements.invoicePreview) {
+            elements.invoicePreview.style.display = 'block';
+            elements.invoicePreview.scrollIntoView({ behavior: 'smooth' });
+        }
         updateTotals();
 
         console.log('✅ Vista previa mostrada');
@@ -472,13 +557,38 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        elements.detailsJson.value = JSON.stringify(products);
-        console.log('📤 Enviando factura:', { customer: selectedCustomer, products });
+        // Preparar los datos finales de la factura
+        const invoiceDetails = products.map(p => ({
+            ProductID: p.ProductID,
+            Quantity: p.Quantity,
+            UnitPrice: p.UnitPrice,
+            Total: p.Quantity * p.UnitPrice
+        }));
 
+        const invoiceData = {
+            CustomerID: selectedCustomer.id,
+            Details: invoiceDetails,
+            Subtotal: products.reduce((sum, p) => sum + (p.Quantity * p.UnitPrice), 0),
+            TaxRate: 0.19,
+            Total: parseFloat(elements.totalAmount.textContent.replace('$', '')) // Obtener el total calculado
+        };
+
+        if (elements.detailsJson) {
+            // Asigna los detalles serializados al campo oculto para que el servidor los reciba.
+            elements.detailsJson.value = JSON.stringify(invoiceDetails);
+        }
+
+        console.log('📤 Enviando factura al servidor:', invoiceData);
+
+        // =======================================================================
+        // 🚀 CORRECCIÓN CLAVE: Descomentar esta línea para que el formulario POST se ejecute.
+        // Se elimina el código de "Simulación: Limpiar después de enviar" para que el servidor
+        // tome el control y muestre la factura o redireccione.
+        // =======================================================================
         e.target.submit();
     });
 
-    // ==================== NOTIFICACIONES ====================
+    // ==================== NOTIFICACIONES (Resto del código se mantiene) ====================
 
     function showNotification(message, type) {
         const colors = {
@@ -500,6 +610,13 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.appendChild(alert);
         setTimeout(() => alert.remove(), 3000);
     }
+
+    // Inicialización de estados
+    disableAllCustomerInputs();
+    disableAllProductInputs();
+    checkFormCompletion();
+    renderProductsTable();
+
 
     console.log('🎉 Sistema de facturación listo');
 });

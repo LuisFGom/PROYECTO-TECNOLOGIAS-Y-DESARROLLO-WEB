@@ -1,23 +1,15 @@
-﻿using InvoiceManagementSystem.ViewModels;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace InvoiceManagementSystem.Web.Controllers
 {
     public class HomeController : Controller
     {
+        // GET: Home/Index
+        // ✅ Mostrará la página de inicio con las tablas de Facturas, Clientes y Productos
+        [HttpGet]
         public IActionResult Index()
         {
-            // Inicializa el modelo con valores por defecto
-            var model = new InvoiceViewModel
-            {
-                InvoiceDate = DateTime.Now,
-                SubTotal = 0,
-                Tax = 0,
-                Total = 0,
-                InvoiceDetails = new List<InvoiceDetailViewModel>()
-            };
-
-            return View(model);
+            return View();
         }
 
         public IActionResult Privacy()

@@ -6,7 +6,6 @@
 }
 
 <div class="container-fluid py-4">
-    <!-- TÍTULO PRINCIPAL -->
     <div class="text-center mb-4">
         <h1 class="display-4 fw-bold">DATOS DE LA COMPRA</h1>
         <hr class="border border-dark border-2 opacity-75" />
@@ -16,13 +15,11 @@
         <div class="card-body p-4">
             <form id="invoiceForm" method="post" asp-action="Create">
 
-                <!-- ==================== SECCIÓN CLIENTE ==================== -->
                 <div class="card border-primary mb-4">
                     <div class="card-header bg-light">
                         <h5 class="mb-0"><i class="bi bi-person-circle"></i> Datos del Cliente</h5>
                     </div>
                     <div class="card-body">
-                        <!-- Botones de Búsqueda -->
                         <div class="mb-3">
                             <label class="fw-bold mb-2">Buscar Cliente Por:</label>
                             <div class="btn-group w-100" role="group">
@@ -41,7 +38,6 @@
                             </div>
                         </div>
 
-                        <!-- Campos de Búsqueda -->
                         <div class="row mb-3">
                             <div class="col-md-3 position-relative">
                                 <label class="form-label fw-bold">ID Cliente</label>
@@ -65,7 +61,6 @@
                             </div>
                         </div>
 
-                        <!-- Cliente Seleccionado -->
                         <div class="card bg-light p-3" id="selectedCustomerCard" style="display:none;">
                             <h6 class="text-success mb-3"><i class="bi bi-check-circle"></i> Cliente Seleccionado</h6>
                             <div class="row">
@@ -94,13 +89,11 @@
                     </div>
                 </div>
 
-                <!-- ==================== SECCIÓN PRODUCTOS ==================== -->
                 <div class="card border-success mb-4">
                     <div class="card-header bg-light">
                         <h5 class="mb-0"><i class="bi bi-box-seam"></i> Información del Producto</h5>
                     </div>
                     <div class="card-body">
-                        <!-- Botones de Búsqueda de Productos -->
                         <div class="mb-3">
                             <label class="fw-bold mb-2">Buscar Producto Por:</label>
                             <div class="btn-group w-100" role="group">
@@ -113,7 +106,6 @@
                             </div>
                         </div>
 
-                        <!-- Campos de Producto -->
                         <div class="row mb-3">
                             <div class="col-md-2 position-relative">
                                 <label class="form-label fw-bold">Código</label>
@@ -139,14 +131,12 @@
                             </div>
                         </div>
 
-                        <!-- Botón Agregar -->
                         <div class="text-end mb-3">
                             <button type="button" id="btnAddProduct" class="btn btn-success btn-lg" disabled>
                                 <i class="bi bi-plus-circle"></i> AGREGAR A FACTURA
                             </button>
                         </div>
 
-                        <!-- Tabla de Productos -->
                         <div class="table-responsive">
                             <table class="table table-hover table-bordered" id="productsTable">
                                 <thead class="table-dark">
@@ -172,7 +162,6 @@
                     </div>
                 </div>
 
-                <!-- ==================== BOTÓN GENERAR FACTURA ==================== -->
                 <div class="row">
                     <div class="col-12 text-center mb-4">
                         <button type="button" id="btnGenerateInvoice" class="btn btn-primary btn-lg px-5 py-3" disabled>
@@ -182,7 +171,6 @@
                     </div>
                 </div>
 
-                <!-- ==================== VISTA PREVIA DE FACTURA ==================== -->
                 <div class="card border-success" id="invoicePreview" style="display:none;">
                     <div class="card-header bg-success text-white">
                         <h4 class="mb-0">✅ Vista Previa de la Factura</h4>
@@ -252,7 +240,7 @@
         box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         display: none;
         left: 0;
-        top: 100%;
+        top: 100%; /* Esta línea asegura que el dropdown aparezca justo debajo del input */
     }
 
     .search-result-item {

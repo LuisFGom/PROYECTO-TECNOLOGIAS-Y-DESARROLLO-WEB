@@ -1,48 +1,299 @@
-﻿@using InvoiceManagementSystem.ViewModels
-@model InvoiceViewModel
-@{
+﻿@{
     ViewData["Title"] = "Inicio";
 }
 
-<div class="container mt-5">
-    <div class="text-center">
-        <h1 class="display-4">Sistema de Gestión de Facturas</h1>
-        <p class="lead">Bienvenido al sistema de facturación</p>
+<div class="container-fluid py-4">
+    <!-- TÍTULO PRINCIPAL -->
+    <div class="text-center mb-5">
+        <h1 class="display-3 fw-bold">Sistema de Gestión de Facturas</h1>
+        <p class="lead text-muted">Bienvenido al sistema de facturación</p>
+    </div>
 
-        <div class="mt-4">
-            <a asp-controller="Invoices" asp-action="Create" class="btn btn-primary btn-lg">
-                <i class="bi bi-plus-circle"></i> Crear Nueva Factura
+    <!-- BOTÓN CREAR NUEVA FACTURA -->
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <a href="/Invoices/Create" class="btn btn-primary btn-lg px-5 py-3">
+                <i class="bi bi-plus-circle fs-4"></i>
+                <span class="fs-5 ms-2">Crear Nueva Factura</span>
             </a>
         </div>
     </div>
 
-    <div class="row mt-5">
+    <!-- TARJETAS DE ACCESO RÁPIDO -->
+    <div class="row g-4 mb-5">
         <div class="col-md-4">
-            <div class="card">
-                <div class="card-body text-center">
-                    <i class="bi bi-file-earmark-text" style="font-size: 3rem;"></i>
-                    <h5 class="card-title mt-3">Facturas</h5>
-                    <p class="card-text">Gestiona todas tus facturas</p>
+            <div class="card h-100 border-0 shadow-sm hover-card" onclick="showInvoices()" style="cursor: pointer;">
+                <div class="card-body text-center p-4">
+                    <div class="icon-circle mb-3">
+                        <i class="bi bi-receipt fs-1"></i>
+                    </div>
+                    <h3 class="card-title">Facturas</h3>
+                    <p class="card-text text-muted">Gestiona todas tus facturas</p>
+                    <button class="btn btn-outline-primary" type="button">Ver Facturas</button>
                 </div>
             </div>
         </div>
+
         <div class="col-md-4">
-            <div class="card">
-                <div class="card-body text-center">
-                    <i class="bi bi-people" style="font-size: 3rem;"></i>
-                    <h5 class="card-title mt-3">Clientes</h5>
-                    <p class="card-text">Administra tu base de clientes</p>
+            <div class="card h-100 border-0 shadow-sm hover-card" onclick="showCustomers()" style="cursor: pointer;">
+                <div class="card-body text-center p-4">
+                    <div class="icon-circle mb-3">
+                        <i class="bi bi-people fs-1"></i>
+                    </div>
+                    <h3 class="card-title">Clientes</h3>
+                    <p class="card-text text-muted">Administra tu base de clientes</p>
+                    <button class="btn btn-outline-success" type="button">Ver Clientes</button>
                 </div>
             </div>
         </div>
+
         <div class="col-md-4">
-            <div class="card">
-                <div class="card-body text-center">
-                    <i class="bi bi-box-seam" style="font-size: 3rem;"></i>
-                    <h5 class="card-title mt-3">Productos</h5>
-                    <p class="card-text">Controla tu inventario</p>
+            <div class="card h-100 border-0 shadow-sm hover-card" onclick="showProducts()" style="cursor: pointer;">
+                <div class="card-body text-center p-4">
+                    <div class="icon-circle mb-3">
+                        <i class="bi bi-box-seam fs-1"></i>
+                    </div>
+                    <h3 class="card-title">Productos</h3>
+                    <p class="card-text text-muted">Controla tu inventario</p>
+                    <button class="btn btn-outline-warning" type="button">Ver Productos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== TABLA DE FACTURAS ==================== -->
+    <div id="invoicesSection" style="display:none;">
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <h4 class="mb-0">📋 Todas las Facturas</h4>
+                <button type="button" class="btn btn-sm btn-light" onclick="hideAllSections()">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped" id="invoicesTable">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>N° Factura</th>
+                                <th>Fecha</th>
+                                <th>Cliente</th>
+                                <th class="text-end">Total</th>
+                                <th class="text-center">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="invoicesTableBody">
+                            <tr>
+                                <td colspan="5" class="text-center py-4">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Cargando...</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== TABLA DE CLIENTES ==================== -->
+    <div id="customersSection" style="display:none;">
+        <div class="card shadow-lg">
+            <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                <h4 class="mb-0">👥 Todos los Clientes</h4>
+                <button type="button" class="btn btn-sm btn-light" onclick="hideAllSections()">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped" id="customersTable">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Email</th>
+                                <th>Fecha Registro</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customersTableBody">
+                            <tr>
+                                <td colspan="5" class="text-center py-4">
+                                    <div class="spinner-border text-success" role="status">
+                                        <span class="visually-hidden">Cargando...</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== TABLA DE PRODUCTOS ==================== -->
+    <div id="productsSection" style="display:none;">
+        <div class="card shadow-lg">
+            <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
+                <h4 class="mb-0">📦 Todos los Productos</h4>
+                <button type="button" class="btn btn-sm btn-light" onclick="hideAllSections()">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped" id="productsTable">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Código</th>
+                                <th>Nombre</th>
+                                <th class="text-end">Precio</th>
+                                <th class="text-center">Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody">
+                            <tr>
+                                <td colspan="4" class="text-center py-4">
+                                    <div class="spinner-border text-warning" role="status">
+                                        <span class="visually-hidden">Cargando...</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .hover-card {
+        transition: all 0.3s ease;
+    }
+
+        .hover-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+        }
+
+    .icon-circle {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 48px;
+    }
+</style>
+
+<script>
+    async function showInvoices() {
+        hideAllSections();
+        document.getElementById('invoicesSection').style.display = 'block';
+
+        try {
+            const response = await fetch('/api/lookup/invoices');
+            const data = await response.json();
+
+            const tbody = document.querySelector('#invoicesTableBody');
+
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" class="text-center py-4 text-muted">No hay facturas registradas</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = data.map(inv => `
+                <tr>
+                    <td><strong>${String(inv.invoiceID).padStart(6, '0')}</strong></td>
+                    <td>${new Date(inv.invoiceDate).toLocaleDateString('es-ES')}</td>
+                    <td>${inv.customerName}</td>
+                    <td class="text-end"><strong>$${inv.total.toFixed(2)}</strong></td>
+                    <td class="text-center">
+                        <a href="/Invoices/Print/${inv.invoiceID}" target="_blank" class="btn btn-sm btn-primary" title="Abrir Factura">
+                            <i class="bi bi-file-pdf"></i> Ver
+                        </a>
+                    </td>
+                </tr>
+            `).join('');
+        } catch (error) {
+            console.error('Error al cargar facturas:', error);
+            document.querySelector('#invoicesTableBody').innerHTML = '<tr><td colspan="5" class="text-center text-danger py-4">Error al cargar facturas</td></tr>';
+        }
+    }
+
+    async function showCustomers() {
+        hideAllSections();
+        document.getElementById('customersSection').style.display = 'block';
+
+        try {
+            const response = await fetch('/api/lookup/all-customers');
+            const data = await response.json();
+
+            const tbody = document.querySelector('#customersTableBody');
+
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" class="text-center py-4 text-muted">No hay clientes registrados</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = data.map(c => `
+                <tr>
+                    <td><strong>${c.customerID}</strong></td>
+                    <td>${c.firstName}</td>
+                    <td>${c.lastName}</td>
+                    <td>${c.email}</td>
+                    <td>${new Date(c.createdDate).toLocaleDateString('es-ES')}</td>
+                </tr>
+            `).join('');
+        } catch (error) {
+            console.error('Error al cargar clientes:', error);
+            document.querySelector('#customersTableBody').innerHTML = '<tr><td colspan="5" class="text-center text-danger py-4">Error al cargar clientes</td></tr>';
+        }
+    }
+
+    async function showProducts() {
+        hideAllSections();
+        document.getElementById('productsSection').style.display = 'block';
+
+        try {
+            const response = await fetch('/api/lookup/all-products');
+            const data = await response.json();
+
+            const tbody = document.querySelector('#productsTableBody');
+
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" class="text-center py-4 text-muted">No hay productos registrados</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = data.map(p => `
+                <tr>
+                    <td><strong>${p.productCode}</strong></td>
+                    <td>${p.productName}</td>
+                    <td class="text-end">$${p.price.toFixed(2)}</td>
+                    <td class="text-center">
+                        <span class="badge bg-${p.stock > 10 ? 'success' : p.stock > 0 ? 'warning' : 'danger'}">
+                            ${p.stock}
+                        </span>
+                    </td>
+                </tr>
+            `).join('');
+        } catch (error) {
+            console.error('Error al cargar productos:', error);
+            document.querySelector('#productsTableBody').innerHTML = '<tr><td colspan="4" class="text-center text-danger py-4">Error al cargar productos</td></tr>';
+        }
+    }
+
+    function hideAllSections() {
+        document.getElementById('invoicesSection').style.display = 'none';
+        document.getElementById('customersSection').style.display = 'none';
+        document.getElementById('productsSection').style.display = 'none';
+    }
+</script>
