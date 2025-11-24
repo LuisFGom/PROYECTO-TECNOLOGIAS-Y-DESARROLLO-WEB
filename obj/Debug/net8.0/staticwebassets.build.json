@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aZp4aER/AUs28FLavGxQKVnDk+1vo1A21I1Nwn9eA9U=",
+  "Hash": "D42v4VNW4cRzeeQguWlaSzsrS75NQvDYMFQjTEeN9O0=",
   "Source": "InvoiceManagementSystem",
   "BasePath": "_content/InvoiceManagementSystem",
   "Mode": "Default",
@@ -1795,7 +1795,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 24 Nov 2025 04:57:24 GMT"
+          "Value": "Mon, 24 Nov 2025 05:07:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1840,7 +1840,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 24 Nov 2025 04:57:24 GMT"
+          "Value": "Mon, 24 Nov 2025 05:07:34 GMT"
         },
         {
           "Name": "Cache-Control",

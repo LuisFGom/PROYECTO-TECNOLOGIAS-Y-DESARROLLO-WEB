@@ -6,11 +6,34 @@
 }
 
 <div class="container-fluid py-4">
-    <!-- ENCABEZADO PRINCIPAL CON NÚMERO Y FECHA -->
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <h5 class="alert-heading"><i class="bi bi-exclamation-triangle-fill"></i> Error en la Transacción</h5>
+            <hr>
+            @Html.Raw(TempData["ErrorMessage"])
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <h5 class="alert-heading"><i class="bi bi-exclamation-triangle-fill"></i> Errores de Validación</h5>
+            <hr>
+            <ul class="mb-0">
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
     <div class="text-center mb-4">
         <h1 class="display-5 fw-bold">DATOS DE LA COMPRA</h1>
 
-        <!-- NÚMERO DE FACTURA Y FECHA -->
         <div class="d-flex justify-content-between align-items-center mt-3 px-5">
             <div class="text-start">
                 <h3 class="text-primary mb-0">Nº Factura: <span class="text-dark fw-bold">@Model.NextInvoiceNumber.ToString("D6")</span></h3>
@@ -27,59 +50,53 @@
         <div class="card-body p-4">
             <form id="invoiceForm" method="post" asp-action="Create">
 
-                <!-- ========== SECCIÓN CLIENTE CON MODAL ========== -->
                 <div class="card border-primary mb-4">
                     <div class="card-header bg-light">
                         <h5 class="mb-0"><i class="bi bi-person-circle"></i> Datos del Cliente</h5>
                     </div>
                     <div class="card-body">
-                        <!-- BOTÓN PARA ABRIR MODAL -->
                         <div class="mb-3">
                             <button type="button" class="btn btn-primary btn-lg w-100" data-bs-toggle="modal" data-bs-target="#customerModal">
                                 <i class="bi bi-search"></i> BUSCAR CLIENTE
                             </button>
                         </div>
 
-                        <!-- CLIENTE SELECCIONADO -->
-                        <div class="card bg-light p-3" id="selectedCustomerCard" style="display:none;">
+                        <div class="card bg-light p-3" id="selectedCustomerCard" style="display:@(Model.CustomerID.HasValue && Model.CustomerID.Value != 0 ? "block" : "none");">
                             <h6 class="text-success mb-3"><i class="bi bi-check-circle"></i> Cliente Seleccionado</h6>
                             <div class="row">
                                 <div class="col-md-2">
                                     <strong>ID:</strong>
-                                    <p id="displayCustomerId" class="mb-0">-</p>
-                                    <input type="hidden" id="CustomerID" name="CustomerID" />
+                                    <p id="displayCustomerId" class="mb-0">@(Model.CustomerID.HasValue ? Model.CustomerID.Value.ToString() : "-")</p>
+                                    <input type="hidden" id="CustomerID" name="CustomerID" value="@(Model.CustomerID.HasValue ? Model.CustomerID.Value : 0)" />
                                 </div>
                                 <div class="col-md-3">
                                     <strong>Nombre:</strong>
-                                    <p id="displayFirstName" class="mb-0">-</p>
+                                    <p id="displayFirstName" class="mb-0">@Model.FirstName</p>
                                 </div>
                                 <div class="col-md-3">
                                     <strong>Apellido:</strong>
-                                    <p id="displayLastName" class="mb-0">-</p>
+                                    <p id="displayLastName" class="mb-0">@Model.LastName</p>
                                 </div>
                                 <div class="col-md-4">
                                     <strong>Email:</strong>
-                                    <p id="displayEmail" class="mb-0">-</p>
+                                    <p id="displayEmail" class="mb-0">@Model.Email</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- ========== SECCIÓN PRODUCTO CON MODAL ========== -->
                 <div class="card border-success mb-4">
                     <div class="card-header bg-light">
                         <h5 class="mb-0"><i class="bi bi-box-seam"></i> Información del Producto</h5>
                     </div>
                     <div class="card-body">
-                        <!-- BOTÓN PARA ABRIR MODAL -->
                         <div class="mb-3">
                             <button type="button" class="btn btn-success btn-lg w-100" data-bs-toggle="modal" data-bs-target="#productModal">
                                 <i class="bi bi-search"></i> BUSCAR PRODUCTO
                             </button>
                         </div>
 
-                        <!-- TABLA DE PRODUCTOS -->
                         <div class="table-responsive">
                             <table class="table table-hover table-bordered" id="productsTable">
                                 <thead class="table-dark">
@@ -93,7 +110,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="productsTableBody">
-                                    <tr id="emptyRow">
+                                    <tr id="emptyRow" style="display: @(TempData["ValidDetailsJson"] == null ? "table-row" : "none")">
                                         <td colspan="6" class="text-center text-muted py-4">
                                             <i class="bi bi-inbox fs-1"></i>
                                             <p class="mb-0">No hay productos agregados</p>
@@ -103,7 +120,6 @@
                             </table>
                         </div>
 
-                        <!-- TOTALES A LA DERECHA -->
                         <div class="row mt-4">
                             <div class="col-md-8"></div>
                             <div class="col-md-4">
@@ -129,7 +145,6 @@
                     </div>
                 </div>
 
-                <!-- BOTÓN GENERAR FACTURA -->
                 <div class="row">
                     <div class="col-12 text-center mb-4">
                         <button type="submit" id="btnGenerateInvoice" class="btn btn-primary btn-lg px-5 py-3" disabled>
@@ -145,7 +160,6 @@
     </div>
 </div>
 
-<!-- ========== MODAL BUSCAR CLIENTE ========== -->
 <div class="modal fade" id="customerModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
         <div class="modal-content">
@@ -154,12 +168,10 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <!-- BÚSQUEDA INTELIGENTE -->
                 <div class="mb-3">
                     <input type="text" id="customerSearchInput" class="form-control form-control-lg"
                            placeholder="Buscar por ID, Nombre, Apellido o Email...">
                 </div>
-                <!-- RESULTADOS -->
                 <div id="customerResults" class="list-group">
                     <p class="text-muted text-center">Cargando clientes...</p>
                 </div>
@@ -168,7 +180,6 @@
     </div>
 </div>
 
-<!-- ========== MODAL BUSCAR PRODUCTO ========== -->
 <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
         <div class="modal-content">
@@ -177,12 +188,10 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <!-- BÚSQUEDA INTELIGENTE -->
                 <div class="mb-3">
                     <input type="text" id="productSearchInput" class="form-control form-control-lg"
                            placeholder="Buscar por Código o Nombre...">
                 </div>
-                <!-- RESULTADOS -->
                 <div id="productResults" class="row g-3">
                     <p class="text-muted text-center">Cargando productos...</p>
                 </div>
@@ -191,7 +200,6 @@
     </div>
 </div>
 
-<!-- MODAL PARA INGRESAR CANTIDAD -->
 <div class="modal fade" id="quantityModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -218,6 +226,7 @@
 </div>
 
 <style>
+    /* Estilos (Sin cambios) */
     .list-group-item:hover {
         background-color: #e7f3ff;
         cursor: pointer;
@@ -251,3 +260,55 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/invoice-modal.js"></script>
+
+<script>
+    // **NOTA IMPORTANTE:** Se asume que en tu 'invoice-modal.js' existen:
+    // 1. Una variable global llamada 'invoiceDetails' (Array).
+    // 2. Una función 'updateProductsTable()' que dibuja las filas de la tabla usando 'invoiceDetails'.
+    // 3. Una función 'calculateTotals()' que calcula y actualiza los totales.
+    // 4. Se debe inicializar invoiceDetails = [] en tu invoice-modal.js si no lo está.
+
+    // 🔥 REHIDRATACIÓN DE DETALLES TRAS UN ERROR DE VALIDACIÓN 🔥
+    // Usamos  para obtener el JSON sin codificación HTML
+    const validDetailsJson = '@Html.Raw(TempData["ValidDetailsJson"])';
+
+    // Verificamos si existe el JSON de productos válidos
+    if (validDetailsJson && validDetailsJson !== '' && validDetailsJson !== 'null') {
+        try {
+            // Cargar los productos válidos desde TempData en la matriz de JavaScript
+            const loadedDetails = JSON.parse(validDetailsJson);
+
+            if (Array.isArray(loadedDetails) && loadedDetails.length > 0) {
+                // Asignar los detalles válidos a la variable global (definida en invoice-modal.js)
+                // Esto mantiene los productos que no causaron error.
+                invoiceDetails = loadedDetails;
+
+                // Ocultar la fila de "No hay productos"
+                document.getElementById('emptyRow').style.display = 'none';
+
+                // Actualizar la tabla, el JSON oculto del formulario y los totales
+                // Estas funciones deben estar en tu archivo invoice-modal.js
+                updateProductsTable();
+                calculateTotals();
+
+                // Si hay productos, habilitar el botón de generar factura
+                document.getElementById('btnGenerateInvoice').disabled = false;
+            } else {
+                 // Si la lista está vacía después de los errores, asegurar la fila de vacío se muestre
+                document.getElementById('emptyRow').style.display = 'table-row';
+            }
+        } catch (e) {
+            console.error("Error al rehidratar los detalles válidos:", e);
+            // En caso de error, limpiar la lista y mostrar la fila de vacío por seguridad.
+            invoiceDetails = [];
+            document.getElementById('emptyRow').style.display = 'table-row';
+            calculateTotals();
+        }
+    } else {
+        // Asegurar que si el Model está limpio o no hubo TempData, la tabla esté vacía.
+        if (typeof invoiceDetails === 'undefined' || invoiceDetails.length === 0) {
+            document.getElementById('emptyRow').style.display = 'table-row';
+        }
+    }
+
+</script>
