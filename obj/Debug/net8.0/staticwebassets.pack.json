@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\js\\invoice-advanced.js"
     },
     {
+      "Id": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\wwwroot\\js\\invoice-modal.js",
+      "PackagePath": "staticwebassets\\js\\invoice-modal.js"
+    },
+    {
       "Id": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\wwwroot\\js\\invoice.js",
       "PackagePath": "staticwebassets\\js\\invoice.js"
     },

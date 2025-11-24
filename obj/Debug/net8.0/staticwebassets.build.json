@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ivq0W8MElcstE63DS7IWwO01QxO1eyNGlqfQSwKPHN8=",
+  "Hash": "aZp4aER/AUs28FLavGxQKVnDk+1vo1A21I1Nwn9eA9U=",
   "Source": "InvoiceManagementSystem",
   "BasePath": "_content/InvoiceManagementSystem",
   "Mode": "Default",
@@ -120,6 +120,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\invoice-advanced.js"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\wwwroot\\js\\invoice-modal.js",
+      "SourceId": "InvoiceManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\wwwroot\\",
+      "BasePath": "_content/InvoiceManagementSystem",
+      "RelativePath": "js/invoice-modal#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bz2kzit9ld",
+      "Integrity": "F+ccCY18HR5c8QhsNqrxND1FonJrvxFtJktla0vT/ng=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\invoice-modal.js"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\wwwroot\\js\\site.js",
@@ -1748,6 +1769,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-DqNJJIf6uqeCYhtI+seagYI30EfeKYSxqRFILx9Z2Yg="
+        }
+      ]
+    },
+    {
+      "Route": "js/invoice-modal.bz2kzit9ld.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\wwwroot\\js\\invoice-modal.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23014"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"F+ccCY18HR5c8QhsNqrxND1FonJrvxFtJktla0vT/ng=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 24 Nov 2025 04:57:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bz2kzit9ld"
+        },
+        {
+          "Name": "label",
+          "Value": "js/invoice-modal.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-F+ccCY18HR5c8QhsNqrxND1FonJrvxFtJktla0vT/ng="
+        }
+      ]
+    },
+    {
+      "Route": "js/invoice-modal.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\wwwroot\\js\\invoice-modal.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23014"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"F+ccCY18HR5c8QhsNqrxND1FonJrvxFtJktla0vT/ng=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 24 Nov 2025 04:57:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-F+ccCY18HR5c8QhsNqrxND1FonJrvxFtJktla0vT/ng="
         }
       ]
     },

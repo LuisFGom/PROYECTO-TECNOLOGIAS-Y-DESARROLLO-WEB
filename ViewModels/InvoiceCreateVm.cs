@@ -13,6 +13,9 @@ public class InvoiceDetailVm
 
 public class InvoiceCreateVm
 {
+    // 🔥 NUEVO: Número de factura que se generará
+    public int NextInvoiceNumber { get; set; }
+
     // Maestro (cliente)
     public int? CustomerID { get; set; }
     public string FirstName { get; set; } = string.Empty;

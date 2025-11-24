@@ -331,6 +331,88 @@
       ]
     },
     {
+      "Route": "js/invoice-modal.bz2kzit9ld.js",
+      "AssetFile": "js/invoice-modal.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23014"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"F+ccCY18HR5c8QhsNqrxND1FonJrvxFtJktla0vT/ng=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 24 Nov 2025 04:57:24 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bz2kzit9ld"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-F+ccCY18HR5c8QhsNqrxND1FonJrvxFtJktla0vT/ng="
+        },
+        {
+          "Name": "label",
+          "Value": "js/invoice-modal.js"
+        }
+      ]
+    },
+    {
+      "Route": "js/invoice-modal.js",
+      "AssetFile": "js/invoice-modal.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23014"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"F+ccCY18HR5c8QhsNqrxND1FonJrvxFtJktla0vT/ng=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 24 Nov 2025 04:57:24 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-F+ccCY18HR5c8QhsNqrxND1FonJrvxFtJktla0vT/ng="
+        }
+      ]
+    },
+    {
       "Route": "js/invoice.ar0euldh2r.js",
       "AssetFile": "js/invoice.js",
       "Selectors": [],

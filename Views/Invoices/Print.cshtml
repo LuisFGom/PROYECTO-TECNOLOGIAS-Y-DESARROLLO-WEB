@@ -53,11 +53,6 @@
                 margin: 0;
             }
 
-            .invoice-number p {
-                color: #666;
-                margin: 5px 0;
-            }
-
         .invoice-details {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -101,6 +96,11 @@
             border: 1px solid #ddd;
         }
 
+            /* ✅ ALINEACIÓN A LA DERECHA PARA CANTIDAD */
+            th.text-right, td.text-right {
+                text-align: right;
+            }
+
         td {
             padding: 12px;
             border: 1px solid #ddd;
@@ -113,10 +113,6 @@
 
         tbody tr:hover {
             background: #e7f3ff;
-        }
-
-        .text-right {
-            text-align: right;
         }
 
         .totals-section {
@@ -199,24 +195,15 @@
                 background: #e0a800;
             }
 
-        /* ESTILO ROJO SUAVE PARA EL BOTÓN CERRAR - CORREGIDO */
         .btn-close-invoice {
-            background: #f8d7da; /* Fondo rojo suave */
-            color: #721c24; /* Texto oscuro para contraste */
+            background: #f8d7da;
+            color: #721c24;
             border: 1px solid #f5c6cb;
         }
 
             .btn-close-invoice:hover {
-                background: #f5c6cb; /* Un poco más oscuro al pasar el ratón */
+                background: #f5c6cb;
             }
-
-        .btn i {
-            font-size: 16px;
-        }
-
-        .btn span {
-            font-size: 14px;
-        }
 
         @@media print {
             body {
@@ -246,13 +233,13 @@
 </head>
 <body>
     <div class="invoice-container">
+        <!-- ✅ SOLO NÚMERO DE FACTURA GRANDE, SIN FECHA DUPLICADA -->
         <div class="invoice-header">
             <div class="company-info">
                 <h1>📋 FACTURA</h1>
             </div>
             <div class="invoice-number">
                 <h2>Nº @Model.InvoiceID.ToString("D6")</h2>
-                <p><strong>Fecha:</strong> @Model.InvoiceDate.ToString("dd/MM/yyyy HH:mm")</p>
             </div>
         </div>
 
@@ -263,21 +250,22 @@
                 <div class="detail-item"><strong>Email:</strong> @Model.Customer.Email</div>
                 <div class="detail-item"><strong>ID Cliente:</strong> @Model.Customer.CustomerID</div>
             </div>
+            <!-- ✅ INFORMACIÓN DE FACTURA SIN Nº FACTURA DUPLICADO -->
             <div>
                 <div class="section-title">Información de la Factura:</div>
-                <div class="detail-item"><strong>Nº Factura:</strong> @Model.InvoiceID.ToString("D6")</div>
                 <div class="detail-item"><strong>Fecha:</strong> @Model.InvoiceDate.ToString("dd/MM/yyyy HH:mm")</div>
             </div>
         </div>
 
+        <!-- ✅ TABLA CON CANTIDAD ALINEADA A LA DERECHA -->
         <table>
             <thead>
                 <tr>
                     <th>Código</th>
                     <th>Producto</th>
-                    <th style="text-align: center;">Cantidad</th>
-                    <th style="text-align: right;">Precio Unit.</th>
-                    <th style="text-align: right;">Total</th>
+                    <th class="text-right">Cantidad</th>
+                    <th class="text-right">Precio Unit.</th>
+                    <th class="text-right">Total</th>
                 </tr>
             </thead>
             <tbody>
@@ -286,9 +274,9 @@
                     <tr>
                         <td><strong>@detail.Product.ProductCode</strong></td>
                         <td>@detail.Product.ProductName</td>
-                        <td style="text-align: center;">@detail.Quantity</td>
-                        <td style="text-align: right;">$@detail.UnitPrice.ToString("N2")</td>
-                        <td style="text-align: right;"><strong>$@((detail.Quantity * detail.UnitPrice).ToString("N2"))</strong></td>
+                        <td class="text-right">@detail.Quantity</td>
+                        <td class="text-right">$@detail.UnitPrice.ToString("N2")</td>
+                        <td class="text-right"><strong>$@((detail.Quantity * detail.UnitPrice).ToString("N2"))</strong></td>
                     </tr>
                 }
             </tbody>
@@ -316,19 +304,15 @@
 
         <div class="actions">
             <button type="button" class="btn btn-print" onclick="window.print()">
-                <i class="bi bi-printer-fill"></i>
                 <span>🖨️ Imprimir</span>
             </button>
             <button type="button" class="btn btn-save" onclick="savePDF()">
-                <i class="bi bi-file-earmark-pdf"></i>
                 <span>💾 Descargar PDF</span>
             </button>
             <button type="button" class="btn btn-cancel" onclick="goBack()">
-                <i class="bi bi-arrow-left"></i>
                 <span>⬅️ Volver</span>
             </button>
             <button type="button" class="btn btn-close-invoice" onclick="closeWindow()">
-                <i class="bi bi-x-circle"></i>
                 <span>❌ Cerrar</span>
             </button>
         </div>

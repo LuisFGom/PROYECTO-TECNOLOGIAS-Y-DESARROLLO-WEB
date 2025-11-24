@@ -18,12 +18,21 @@ namespace InvoiceManagementSystem.Web.Controllers
 
         // GET: Invoices/Create
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            // 🔥 OBTENER EL PRÓXIMO NÚMERO DE FACTURA
+            var lastInvoice = await _ctx.Invoices
+                .OrderByDescending(i => i.InvoiceID)
+                .FirstOrDefaultAsync();
+
+            int nextInvoiceNumber = (lastInvoice?.InvoiceID ?? 0) + 1;
+
             var vm = new InvoiceCreateVm
             {
-                InvoiceDate = DateTime.Now
+                InvoiceDate = DateTime.Now,
+                NextInvoiceNumber = nextInvoiceNumber // 🔥 ASIGNAR EL PRÓXIMO NÚMERO
             };
+
             return View(vm);
         }
 

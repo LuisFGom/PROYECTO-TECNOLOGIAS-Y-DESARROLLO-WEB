@@ -3,6 +3,7 @@ wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\js\invoice.js
 wwwroot\js\invoice-advanced.js
+wwwroot\js\invoice-modal.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

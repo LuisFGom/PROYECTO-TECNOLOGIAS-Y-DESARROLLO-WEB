@@ -3,20 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\web\\controllers\\api\\lookupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:web\\controllers\\api\\lookupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\wwwroot\\js\\invoice-modal.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:wwwroot\\js\\invoice-modal.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\views\\invoices\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:views\\invoices\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\web\\controllers\\invoicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:web\\controllers\\invoicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\views\\invoices\\print.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:views\\invoices\\print.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\viewmodels\\invoicecreatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:viewmodels\\invoicecreatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\viewmodels\\invoiceviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:viewmodels\\invoiceviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\wwwroot\\js\\invoice-advanced.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:wwwroot\\js\\invoice-advanced.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\views\\invoices\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:views\\invoices\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\web\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:web\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\web\\controllers\\api\\lookupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:web\\controllers\\api\\lookupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -35,28 +71,8 @@
       "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\views\\invoices\\print.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:views\\invoices\\print.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\web\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:web\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\web\\controllers\\api\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:web\\controllers\\api\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\web\\controllers\\invoicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:web\\controllers\\invoicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -75,20 +91,12 @@
       "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\infrastructure\\data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:infrastructure\\data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\web\\controllers\\api\\customerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:web\\controllers\\api\\customerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\viewmodels\\invoiceviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:viewmodels\\invoiceviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\core\\entities\\invoicedetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -101,10 +109,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\core\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:core\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\viewmodels\\invoicecreatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|solutionrelative:viewmodels\\invoicecreatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{15854D53-0643-46D0-AB2B-3E16F50AD383}|InvoiceManagementSystem.csproj|c:\\users\\user\\desktop\\quinto semestre\\tecnologias y desarrollo web\\proyectos (codigos)\\invoicemanagementsystem\\core\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -162,7 +166,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -178,7 +182,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "invoice-modal.js",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\wwwroot\\js\\invoice-modal.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\invoice-modal.js",
+              "ToolTip": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\wwwroot\\js\\invoice-modal.js",
+              "RelativeToolTip": "wwwroot\\js\\invoice-modal.js",
+              "ViewState": "AgIAAAECAAAAAAAAAAAswA4CAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-24T04:08:24.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
@@ -190,7 +207,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
@@ -202,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
@@ -214,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 20,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
@@ -226,19 +243,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "invoice-advanced.js",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\wwwroot\\js\\invoice-advanced.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\invoice-advanced.js",
               "ToolTip": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\wwwroot\\js\\invoice-advanced.js",
               "RelativeToolTip": "wwwroot\\js\\invoice-advanced.js",
-              "ViewState": "AgIAAFMCAAAAAAAAAAAswGUCAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAFMCAAAAAAAAAAAswG0CAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-11-21T00:19:29.136Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 14,
               "Title": "invoice.css",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\wwwroot\\css\\invoice.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\invoice.css",
@@ -250,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 16,
               "Title": "site.js",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\wwwroot\\js\\site.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\site.js",
@@ -262,19 +279,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "Print.cshtml",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Views\\Invoices\\Print.cshtml",
               "RelativeDocumentMoniker": "Views\\Invoices\\Print.cshtml",
               "ToolTip": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Views\\Invoices\\Print.cshtml",
               "RelativeToolTip": "Views\\Invoices\\Print.cshtml",
-              "ViewState": "AgIAAFkBAAAAAAAAAAAswGoBAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAEYBAAAAAAAAAAAswFgBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-20T22:03:49.529Z"
+              "WhenOpened": "2025-11-20T22:03:49.529Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 15,
               "Title": "invoice.js",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\wwwroot\\js\\invoice.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\invoice.js",
@@ -286,68 +304,70 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Views\\Invoices\\Create.cshtml",
               "RelativeDocumentMoniker": "Views\\Invoices\\Create.cshtml",
               "ToolTip": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Views\\Invoices\\Create.cshtml",
               "RelativeToolTip": "Views\\Invoices\\Create.cshtml",
-              "ViewState": "AgIAAHUAAAAAAAAAAAAcwAsBAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAOIAAAAAAAAAAAAswO4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-20T22:00:32.419Z"
+              "WhenOpened": "2025-11-20T22:00:32.419Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 2,
               "Title": "InvoicesController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Web\\Controllers\\InvoicesController.cs",
               "RelativeDocumentMoniker": "Web\\Controllers\\InvoicesController.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Web\\Controllers\\InvoicesController.cs",
               "RelativeToolTip": "Web\\Controllers\\InvoicesController.cs",
-              "ViewState": "AgIAAMYAAAAAAAAAAAAAANkAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAIwA8AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T21:57:56.402Z"
+              "WhenOpened": "2025-11-20T21:57:56.402Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 11,
               "Title": "LookupController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Web\\Controllers\\Api\\LookupController.cs",
               "RelativeDocumentMoniker": "Web\\Controllers\\Api\\LookupController.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Web\\Controllers\\Api\\LookupController.cs",
               "RelativeToolTip": "Web\\Controllers\\Api\\LookupController.cs",
-              "ViewState": "AgIAAIQAAAAAAAAAAAAgwJEAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAL4AAAAAAAAAAAAowNcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T21:56:33.55Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T21:56:33.55Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 4,
               "Title": "InvoiceCreateVm.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\ViewModels\\InvoiceCreateVm.cs",
               "RelativeDocumentMoniker": "ViewModels\\InvoiceCreateVm.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\ViewModels\\InvoiceCreateVm.cs",
               "RelativeToolTip": "ViewModels\\InvoiceCreateVm.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAswBQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA3wAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T21:55:58.496Z"
+              "WhenOpened": "2025-11-20T21:55:58.496Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0BAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAABABAAAAAAAAAAAswCoBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-11-20T21:27:52.865Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "20251118160212_AddUniqueIndexes.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Migrations\\20251118160212_AddUniqueIndexes.cs",
               "RelativeDocumentMoniker": "Migrations\\20251118160212_AddUniqueIndexes.cs",
@@ -359,7 +379,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "ApplicationDbContextModelSnapshot.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Migrations\\ApplicationDbContextModelSnapshot.cs",
               "RelativeDocumentMoniker": "Migrations\\ApplicationDbContextModelSnapshot.cs",
@@ -371,7 +391,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "ProductsController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Web\\Controllers\\Api\\ProductsController.cs",
               "RelativeDocumentMoniker": "Web\\Controllers\\Api\\ProductsController.cs",
@@ -383,7 +403,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "CustomersController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Web\\Controllers\\Api\\CustomersController.cs",
               "RelativeDocumentMoniker": "Web\\Controllers\\Api\\CustomersController.cs",
@@ -395,7 +415,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "SeedData.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Infrastructure\\Data\\SeedData.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Data\\SeedData.cs",
@@ -407,7 +427,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "20251111165512_InitialCreate.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Migrations\\20251111165512_InitialCreate.cs",
               "RelativeDocumentMoniker": "Migrations\\20251111165512_InitialCreate.cs",
@@ -425,25 +445,25 @@
               "RelativeDocumentMoniker": "Web\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Web\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Web\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAYwBkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-11T16:54:37.755Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 6,
               "Title": "InvoiceViewModel.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\ViewModels\\InvoiceViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\InvoiceViewModel.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\ViewModels\\InvoiceViewModel.cs",
               "RelativeToolTip": "ViewModels\\InvoiceViewModel.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAswCQAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAmwCQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-11T16:53:15.169Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "IInvoiceService.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Core\\Interfaces\\IInvoiceService.cs",
               "RelativeDocumentMoniker": "Core\\Interfaces\\IInvoiceService.cs",
@@ -455,7 +475,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "ProductRepository.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Infrastructure\\Repositories\\ProductRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repositories\\ProductRepository.cs",
@@ -467,7 +487,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "InvoiceCreateDto.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Core\\DTOs\\InvoiceCreateDto.cs",
               "RelativeDocumentMoniker": "Core\\DTOs\\InvoiceCreateDto.cs",
@@ -479,7 +499,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "InvoiceDetail.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Core\\Entities\\InvoiceDetail.cs",
               "RelativeDocumentMoniker": "Core\\Entities\\InvoiceDetail.cs",
@@ -491,7 +511,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "Invoice.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Core\\Entities\\Invoice.cs",
               "RelativeDocumentMoniker": "Core\\Entities\\Invoice.cs",
@@ -503,7 +523,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 21,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Infrastructure\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Data\\ApplicationDbContext.cs",
@@ -515,7 +535,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 12,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -527,19 +547,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAswDYAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAswDcAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T16:00:10.214Z"
+              "WhenOpened": "2025-11-11T16:00:10.214Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 9,
               "Title": "CustomerController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Web\\Controllers\\CustomerController.cs",
               "RelativeDocumentMoniker": "Web\\Controllers\\CustomerController.cs",
@@ -551,7 +572,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "IInvoiceService.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Core\\Services\\IInvoiceService.cs",
               "RelativeDocumentMoniker": "Core\\Services\\IInvoiceService.cs",
@@ -563,7 +584,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "CustomerRepository.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Infrastructure\\Repositories\\CustomerRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repositories\\CustomerRepository.cs",
@@ -575,7 +596,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "IProductRepository.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Core\\Interfaces\\IProductRepository.cs",
               "RelativeDocumentMoniker": "Core\\Interfaces\\IProductRepository.cs",
@@ -587,7 +608,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "ICustomerRepository.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Core\\Interfaces\\ICustomerRepository.cs",
               "RelativeDocumentMoniker": "Core\\Interfaces\\ICustomerRepository.cs",
@@ -599,7 +620,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Core\\Entities\\Product.cs",
               "RelativeDocumentMoniker": "Core\\Entities\\Product.cs",
@@ -611,7 +632,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "Customer.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\Core\\Entities\\Customer.cs",
               "RelativeDocumentMoniker": "Core\\Entities\\Customer.cs",
@@ -623,7 +644,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "InvoiceManagementSystem.csproj",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\QUINTO SEMESTRE\\TECNOLOGIAS Y DESARROLLO WEB\\PROYECTOS (CODIGOS)\\InvoiceManagementSystem\\InvoiceManagementSystem.csproj",
               "RelativeDocumentMoniker": "InvoiceManagementSystem.csproj",

@@ -48,6 +48,18 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"q2hy2g1dkd"},{"Name":"integrity","Value":"sha256-DqNJJIf6uqeCYhtI\u002BseagYI30EfeKYSxqRFILx9Z2Yg="},{"Name":"label","Value":"_content/InvoiceManagementSystem/js/invoice-advanced.js"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"27325"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022DqNJJIf6uqeCYhtI\u002BseagYI30EfeKYSxqRFILx9Z2Yg=\u0022"},{"Name":"Last-Modified","Value":"Fri, 21 Nov 2025 15:16:32 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/InvoiceManagementSystem/js/invoice-modal.bz2kzit9ld.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\invoice-modal.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"bz2kzit9ld"},{"Name":"integrity","Value":"sha256-F\u002BccCY18HR5c8QhsNqrxND1FonJrvxFtJktla0vT/ng="},{"Name":"label","Value":"_content/InvoiceManagementSystem/js/invoice-modal.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"23014"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022F\u002BccCY18HR5c8QhsNqrxND1FonJrvxFtJktla0vT/ng=\u0022"},{"Name":"Last-Modified","Value":"Mon, 24 Nov 2025 04:57:24 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/InvoiceManagementSystem/js/invoice-modal.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\invoice-modal.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-F\u002BccCY18HR5c8QhsNqrxND1FonJrvxFtJktla0vT/ng="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"23014"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022F\u002BccCY18HR5c8QhsNqrxND1FonJrvxFtJktla0vT/ng=\u0022"},{"Name":"Last-Modified","Value":"Mon, 24 Nov 2025 04:57:24 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/InvoiceManagementSystem/js/invoice.ar0euldh2r.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\invoice.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
